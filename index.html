@@ -4,7 +4,7 @@
 <head>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta charset="UTF-8">
-    <title>Project Data Collector</title>
+    <title>Collector</title>
     <script src="js/audiodisplay.js"></script>
     <script src="js/recorderjs/recorder.js"></script>
     <script src="js/main.js"></script>
@@ -111,7 +111,7 @@
     </div>
     <div id="panel">
         <div>
-        <p>请输入学号和要录制的条目编号(默认为1)，用于自动生成文件名</p>
+        <p>请输入姓名和要录制的条目编号(默认为1)，用于自动生成文件名</p>
         <input type="text" v-model="stu_id" placeholder="你的学号">
         <input type="text" v-model="current" placeholder="">
         </div>
@@ -126,7 +126,7 @@
         </div>
         <div id="process" :current="current">
             <p>进度条</p>
-            总共录制了 {{ current - 1 }} 条语音，还有 {{ 400 - current + 1 }}条 n(*≧▽≦*)n
+            总共录制了 {{ current - 1 }} 条语音，还有 {{ 400 - current + 1 }}条
         </div>
     </div>
 
@@ -134,7 +134,7 @@
         var myVue = new Vue({
             el: "#panel",
             data: {
-                tokens: "语音 余音 识别 失败 中国 忠告 北京 背景 上海 商行 复旦 饭店 Speech Speaker Signal File Print Open Close Project".split(' '),
+                tokens: "语音 余音 识别 失败 中国 忠告 北京 背景 长沙 产生 科大 课堂 Speech Speaker Signal File Print Open Close Project".split(' '),
                 process: null,
                 started: false,
                 current: 0,
@@ -160,7 +160,7 @@
                         window.adplay.pause();
                     }
                     if (!this.stu_id) {
-                        alert("请输入你的学号！");
+                        alert("请输入你的姓名！");
                         return;
                     }
                     if (!this.started) {
@@ -194,7 +194,7 @@
                         window.adplay.pause();
                         window.adplay.currentTime = 0;
                     } else {
-                        alert("请先自己播放一遍验证一下哟╮(╯_╰)╭");
+                        alert("请先自己播放一遍验证一下哟");
                     }
                 },
                 play: function () {
